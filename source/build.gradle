@@ -1,0 +1,10 @@
+// Configuración compartida por los tres subproyectos de loader.
+subprojects {
+	version = project.mod_version
+	group = project.maven_group
+
+	tasks.withType(JavaCompile).configureEach {
+		options.encoding = 'UTF-8'
+		options.release = 21
+	}
+}
