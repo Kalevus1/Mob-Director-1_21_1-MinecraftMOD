@@ -1,0 +1,31 @@
+plugins {
+	id 'net.minecraftforge.gradle' version "${forgegradle_version}"
+}
+
+base { archivesName = "${archives_base_name}-forge" }
+
+// Compila también la lógica común compartida.
+sourceSets.main.java.srcDir "${rootDir}/common/src/main/java"
+
+minecraft {
+	mappings channel: 'official', version: project.minecraft_version
+	// Forge 1.21.1 usa mappings oficiales en runtime: no hace falta reobfuscar.
+	reobf = false
+}
+
+dependencies {
+	minecraft "net.minecraftforge:forge:${forge_version}"
+}
+
+// La versión se inyecta en mods.toml vía ${file.jarVersion} (manifiesto del jar).
+tasks.named('jar') {
+	manifest {
+		attributes([
+			'Implementation-Version': project.version
+		])
+	}
+}
+
+java {
+	toolchain.languageVersion = JavaLanguageVersion.of(21)
+}

@@ -1,0 +1,28 @@
+modLoader = "javafml"
+loaderVersion = "[52,)"
+license = "CC0-1.0"
+
+[[mods]]
+modId = "mobdirector"
+version = "${file.jarVersion}"
+displayName = "Mob Director"
+authors = "Kalevus"
+description = '''
+Controla mobs con comandos: haz que un mob ataque a otro, que siga a una entidad, que se
+mueva o se deslice de forma cinematica a una coordenada, seleccionandolos por etiquetas.
+'''
+logoFile = "assets/mobdirector/icon.png"
+
+[[dependencies.mobdirector]]
+	modId = "forge"
+	type = "required"
+	versionRange = "[52,)"
+	ordering = "NONE"
+	side = "BOTH"
+
+[[dependencies.mobdirector]]
+	modId = "minecraft"
+	type = "required"
+	versionRange = "[1.21.1,1.22)"
+	ordering = "NONE"
+	side = "BOTH"
