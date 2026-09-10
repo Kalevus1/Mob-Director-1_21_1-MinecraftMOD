@@ -1,0 +1,25 @@
+{
+	"schemaVersion": 1,
+	"id": "mobdirector",
+	"version": "${version}",
+	"name": "Mob Director",
+	"description": "Controla mobs con comandos: haz que un mob ataque a otro o que se mueva de un lugar a otro, seleccionandolos por etiquetas.",
+	"authors": [
+		"Kalevus"
+	],
+	"contact": {},
+	"license": "CC0-1.0",
+	"icon": "assets/mobdirector/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.mobdirector.fabric.MobDirectorFabric"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": ">=1.21.1 <1.22",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
