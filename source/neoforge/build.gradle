@@ -1,0 +1,25 @@
+plugins {
+	id 'net.neoforged.moddev' version "${moddev_version}"
+}
+
+base { archivesName = "${archives_base_name}-neoforge" }
+
+// Compila también la lógica común compartida.
+sourceSets.main.java.srcDir "${rootDir}/common/src/main/java"
+
+neoForge {
+	version = project.neoforge_version
+}
+
+// La versión se inyecta en neoforge.mods.toml vía ${file.jarVersion} (manifiesto del jar).
+tasks.named('jar') {
+	manifest {
+		attributes([
+			'Implementation-Version': project.version
+		])
+	}
+}
+
+java {
+	toolchain.languageVersion = JavaLanguageVersion.of(21)
+}
